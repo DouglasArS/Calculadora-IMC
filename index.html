@@ -1,34 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/scripts.js" defer></script>
-    <title>To Do List JavaScript</title>
+    <title>Calculadora IMC</title>
 </head>
 
 <body>
-    <div id="tasks-container">
-        <div id="tasks-header">
-            <h2>Salve a sua proxima tarefa:</h2>
-            <form action="" id="add-task-form">
-                <input type="text" id="task-title" placeholder="O que você vai fazer?">
-                <button id="add-btn" type="submit">
-                    <ion-icon name="add-outline"></ion-icon>
+    <div id="header">
+        <h1 id="header-title">Calculadora de IMC</h1>
+        <h2 id="header-subtitle">Confira aqui o seu Índice de Massa Corporal</h2>
+    </div>
+
+    <div id="imc-explaination">
+        <p>
+            IMC é a sigla para Índice de Massa Corpórea, parâmetro adotado
+            pela Organização Mundial de Saúde para calcular o peso ideal
+            de cada pessoa.
+        </p>
+        <p>
+            O índice é calculado da seguinte maneira: divide-se o peso do
+            paciente pela sua altura elevada ao quadrado.
+        </p>
+        <p>
+            índice de massa corporal (IMC) pode ajudar a identificar
+            problemas de obesidade ou desnutrição, em crianças,
+            adolescentes, adultos e idosos.
+        </p>
+    </div>
+
+    <div id="calculator-container">
+        <div id="imc-calculator">
+            <h1>Calcule o seu IMC:</h1>
+            <h2>Peso</h2>
+            <input id="weight" type="text" placeholder="Digite o seu peso aqui">
+
+            <h2>Altura</h2>
+            <input id="height" type="text" placeholder="Digite a sua altura aqui.">
+
+            <div id="buttons-caculate">
+                <button id="calculate-imc" type="submit">
+                    Calcular
                 </button>
-            </form>
-        </div>
-        <div id="tasks-list-container">
-            <h2>Estas são as suas tarefas: </h2>
-            <ul id="task-list">
-                <li class="task-box template hide">
-                    <span class="task-title">Task 1</span>
-                    <ion-icon class="done-btn" name="checkmark-outline">Teste 1</ion-icon>
-                    <ion-icon class="remove-btn" name="close-outline"></ion-icon>
-                </li>
-            </ul>
+
+                <button id="clear-imc">
+                    Limpar
+                </button>
+            </div>
+
+            <div id="imc-result">
+                <span>Seu IMC:</span>
+                <span id="imc-value"></span>
+            </div>
+
+
+
         </div>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

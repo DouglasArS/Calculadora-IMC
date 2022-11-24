@@ -1,53 +1,38 @@
-// Add task
-function addTask() {
-    // Get task title
-    const taskTitle = document.querySelector("#task-title").value;
+// Calculate imc
+function calculateIMC() {
 
-    if (taskTitle) {
-        // Clone template
-        const templateTask = document.querySelector(".template");
-        const newTask = templateTask.cloneNode(true);
+    // Get user weight 
+    let weight = parseFloat(
+        document.querySelector("#weight").value
+    )
 
-        // Add titulo in new task
-        newTask.querySelector(".task-title").textContent = taskTitle;
+    // Get user height
+    let height = parseFloat(
+        document.querySelector("#height").value
+    )
 
-        // Remove needless classes
-        newTask.classList.remove("template");
-        newTask.classList.remove("hide");
+    document.querySelector("#imc-value").textContent = (weight / Math.pow(height, 2)).toFixed(2);
 
-        // Add new task in task list
-        const taskList = document.querySelector("#task-list");
-        taskList.appendChild(newTask)
 
-        // Add event on done button
-        const doneBtn = newTask.querySelector(".done-btn").addEventListener("click", function () {
-            doneTask(this)
-        })
-
-        // Add event on remove button
-        const removeBtn = newTask.querySelector(".remove-btn").addEventListener("click", function () {
-            removeTask(this);
-        })
-
-        // Clean new task title input
-        document.querySelector("#task-title").value = ""
-    }
 }
 
-// Add task event
-const addBtn = document.querySelector("#add-btn")
+const calculateBtn = document.querySelector("#calculate-imc")
 
-addBtn.addEventListener("click", function (event) {
+calculateBtn.addEventListener("click", function (event) {
     event.preventDefault();
-    addTask();
+    calculateIMC();
 })
 
-// Done task
-function doneTask(task) {
-    task.parentNode.classList.add("done");
+// Clear IMC
+function clearIMC() {
+    document.querySelector("#weight").value = ""
+    document.querySelector("#height").value = ""
+    document.querySelector("#imc-value").textContent = ""
 }
 
-// Remove task
-function removeTask(task) {
-    task.parentNode.remove(true);
-}
+const clearBtn = document.querySelector("#clear-imc")
+
+clearBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    clearIMC();
+})
